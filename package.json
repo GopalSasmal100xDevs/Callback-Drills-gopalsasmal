@@ -1,0 +1,16 @@
+{
+  "name": "async-drills-gopalsasmal",
+  "version": "1.0.0",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "",
+    "testProblem1": "node ./test/testProblem1.js"
+  },
+  "keywords": [],
+  "author": "Gopal Sasmal",
+  "license": "ISC",
+  "description": ""
+}
