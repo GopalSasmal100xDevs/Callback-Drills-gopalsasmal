@@ -80,9 +80,10 @@ function storeFileName(path, newPath, cb) {
     writeFile(path, allPaths.join("\n"), (err) => {
       if (err) {
         console.log("Error Store file name!");
+      } else {
+        console.log("Store new file name!");
+        cb();
       }
-      console.log("Store new file name!");
-      cb();
     });
   });
 }
@@ -103,9 +104,10 @@ function contentToLowerCase(uppercaseLipsum, cb) {
     writeFile(lowercaseLipsumPath, splitedSentences.join("\n"), (err) => {
       if (err) {
         console.log("Error to store data in file!");
+      } else {
+        console.log("Data saved!");
+        storeFileName(filenamesPath, lowercaseLipsumPath, cb);
       }
-      console.log("Data saved!");
-      storeFileName(filenamesPath, lowercaseLipsumPath, cb);
     });
   });
 }
@@ -118,9 +120,10 @@ function sortContent(lowercaseLipsumPath, cb) {
     writeFile(sortedLipsumPath, sortedData.join("\n"), (err) => {
       if (err) {
         console.log("Error to store data in file!");
+      } else {
+        console.log("Sorted Data saved!");
+        storeFileName(filenamesPath, sortedLipsumPath, cb);
       }
-      console.log("Sorted Data saved!");
-      storeFileName(filenamesPath, sortedLipsumPath, cb);
     });
   });
 }
@@ -133,8 +136,9 @@ function deleteFiles() {
       fs.unlink(filePath, (err) => {
         if (err) {
           console.log("Error deleting file");
+        } else {
+          console.log("File deleted!");
         }
-        console.log("File deleted!");
       });
     });
   });
