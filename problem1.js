@@ -22,9 +22,10 @@ function createDirectory(directoryFilesPath, cb) {
   fs.mkdir(directoryFilesPath, (err) => {
     if (err) {
       console.log("Error create directory");
+    } else {
+      console.log("Directory created!");
+      cb();
     }
-    console.log("Directory created!");
-    cb();
   });
 }
 
@@ -43,9 +44,10 @@ function createJsonFiles(numberOfFiles, directoryPath, cb) {
     fs.writeFile(fileName, jsonData, (err) => {
       if (err) {
         console.log("Error, File creation!");
+      } else {
+        console.log(`file created file${index}.json`);
+        cb(fileName);
       }
-      console.log(`file created file${index}.json`);
-      cb(fileName);
     });
   }
 }
@@ -54,8 +56,9 @@ function deleteJsonFiles(path) {
   fs.unlink(path, (err) => {
     if (err) {
       console.log("Error, Remove file!");
+    } else {
+      console.log("File deleted!");
     }
-    console.log("File deleted!");
   });
 }
 

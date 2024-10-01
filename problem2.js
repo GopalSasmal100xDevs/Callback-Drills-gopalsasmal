@@ -38,9 +38,9 @@ function readFile(path, cb) {
   fs.readFile(path, "utf-8", (err, data) => {
     if (err) {
       console.log("Error occures to read the file!");
+    } else {
+      cb(data);
     }
-
-    cb(data);
   });
 }
 
@@ -50,9 +50,10 @@ function contentToUppercase(data = "", path, cb) {
   writeFile(path, uppercaseData, (err) => {
     if (err) {
       console.log("Error when creating new file");
+    } else {
+      console.log("Uppercase Data saved!");
+      cb(path);
     }
-    console.log("Uppercase Data saved!");
-    cb(path);
   });
 }
 
@@ -64,6 +65,7 @@ function storeFileName(path, newPath, cb) {
   fs.readFile(path, "utf-8", (err, data) => {
     if (err) {
       console.log("Error read data!");
+      return;
     }
 
     if (!data) {
